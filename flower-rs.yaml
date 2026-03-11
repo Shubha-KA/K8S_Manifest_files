@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: flower-rs
+  namespace: shubha-ns
+  labels:
+    app: flower
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: flower-web
+  template:
+    metadata:
+      labels:
+        app: flower-web
+    spec:
+      containers:
+        - name: flower-web-container
+          image: shubha20/flower-web-app:v2.1.0
+          ports:
+            - containerPort: 3015
