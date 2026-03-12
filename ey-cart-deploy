@@ -5,20 +5,20 @@ metadata:
   namespace: shubha-ns
   labels:
     app: cart-app
-spec: #It defines the behaviour of the ReplicaSet
+spec: 
   replicas: 3
-  selector: #It defines how the ReplicaSet finds which Pods to manage
+  selector: 
     matchLabels:
       app: cart-web
-  template: #It contains pod definition
+  template: 
     metadata:
       labels:
         app: cart-web
-    spec: # It contains container definition
+    spec: 
       containers: 
         - name: ey-cart-container
-          image: muralisocial123/ey-cart:v1.1.0
+          image: muralisocial123/flipkart-app-web:v1.1.0
           ports:
-            - containerPort: 3000
+            - containerPort: 80
 
   
